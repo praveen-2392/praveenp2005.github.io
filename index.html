@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praveen P — Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #f9f8f5;
+      --bg2:     #f2f1ec;
+      --bg3:     #e8e6de;
+      --ink:     #18180f;
+      --ink2:    #4c4c3d;
+      --ink3:    #9a9a88;
+      --accent:  #1a6b4a;
+      --a2:      #2d9e72;
+      --a3:      #d4f0e3;
+      --a4:      #ebf8f2;
+      --gold:    #b8860b;
+      --gold2:   #fff3cd;
+      --border:  #dddbd2;
+      --ff:      'Plus Jakarta Sans', sans-serif;
+      --ffd:     'Playfair Display', serif;
+      --ffm:     'JetBrains Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--ff); background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.65; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 200; background: rgba(249,248,245,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 58px; }
+    .nav-brand { font-family: var(--ffd); font-size: 1.15rem; color: var(--accent); }
+    .nav-brand span { font-style: italic; }
+    .nav-links { display: flex; gap: 1.8rem; }
+    .nav-links a { text-decoration: none; color: var(--ink2); font-size: 12.5px; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; transition: color .2s; cursor: pointer; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .hire-btn { background: var(--accent); color: #fff; border: none; padding: 8px 20px; border-radius: 7px; font-size: 13px; font-family: var(--ff); font-weight: 500; cursor: pointer; transition: all .2s; }
+    .hire-btn:hover { background: #0f4730; transform: translateY(-1px); }
+
+    /* HERO */
+    #hero { max-width: 1120px; margin: 0 auto; padding: 5.5rem 2.5rem 4rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; min-height: 86vh; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--a4); border: 1px solid #b2e4cc; color: var(--accent); border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 600; margin-bottom: 1.3rem; letter-spacing: .03em; }
+    .htdot { width: 7px; height: 7px; border-radius: 50%; background: var(--a2); animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    h1 { font-family: var(--ffd); font-size: clamp(2.4rem, 4.5vw, 3.8rem); line-height: 1.1; letter-spacing: -.03em; color: var(--ink); }
+    h1 em { font-style: italic; color: var(--accent); }
+    .hero-desc { color: var(--ink2); font-size: 1rem; font-weight: 300; line-height: 1.8; margin: 1.3rem 0 2rem; max-width: 430px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-p { background: var(--ink); color: #fff; padding: 11px 26px; border: none; border-radius: 8px; font-family: var(--ff); font-size: 13.5px; font-weight: 500; cursor: pointer; transition: all .2s; }
+    .btn-p:hover { background: var(--accent); transform: translateY(-2px); }
+    .btn-o { background: transparent; color: var(--ink); padding: 11px 26px; border: 1.5px solid var(--border); border-radius: 8px; font-family: var(--ff); font-size: 13.5px; font-weight: 500; cursor: pointer; transition: all .2s; }
+    .btn-o:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .hero-loc { display: flex; align-items: center; gap: 6px; color: var(--ink3); font-size: 13px; margin-top: 1.5rem; }
+
+    /* PHOTO */
+    .hero-right { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .photo-frame { position: relative; width: 260px; height: 260px; }
+    .photo-ring { position: absolute; inset: -8px; border-radius: 50%; border: 2px dashed var(--a2); animation: spin 18s linear infinite; }
+    @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    .photo-ring-solid { position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid var(--a3); }
+    .photo-img { width: 260px; height: 260px; border-radius: 50%; object-fit: cover; object-position: center top; border: 4px solid #fff; box-shadow: 0 8px 32px rgba(26,107,74,.15); display: block; }
+    .photo-badge { position: absolute; bottom: 10px; right: -10px; background: #fff; border: 1.5px solid var(--border); border-radius: 12px; padding: 7px 13px; display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; color: var(--ink); box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+    .pb-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--a2); }
+    .avatar-fallback { width: 260px; height: 260px; border-radius: 50%; background: var(--a3); border: 4px solid #fff; display: none; align-items: center; justify-content: center; font-family: var(--ffd); font-size: 4rem; color: var(--accent); }
+    .photo-stats { display: flex; gap: 14px; }
+    .ps { background: #fff; border: 1px solid var(--border); border-radius: 11px; padding: .8rem 1.1rem; text-align: center; flex: 1; }
+    .ps-val { font-size: 1.3rem; font-weight: 700; color: var(--ink); font-family: var(--ffd); }
+    .ps-lbl { font-size: 11px; color: var(--ink3); text-transform: uppercase; letter-spacing: .05em; font-weight: 500; }
+
+    /* SECTIONS */
+    .sec-wrap { max-width: 1120px; margin: 0 auto; padding: 5rem 2.5rem; }
+    .sec-eyebrow { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: .5rem; }
+    .sec-h { font-family: var(--ffd); font-size: clamp(1.7rem,3vw,2.4rem); letter-spacing: -.02em; color: var(--ink); margin-bottom: .8rem; }
+    .sec-sub { color: var(--ink2); font-weight: 300; max-width: 520px; margin-bottom: 3rem; }
+    .divider { border: none; border-top: 1px solid var(--border); }
+
+    /* ABOUT */
+    #about .inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .about-text p { color: var(--ink2); line-height: 1.85; margin-bottom: 1rem; font-weight: 300; font-size: .97rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.4rem; }
+    .chip { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; font-size: 12px; color: var(--ink2); font-weight: 500; }
+    .contact-strip { display: flex; flex-direction: column; gap: 10px; margin-top: 2rem; }
+    .cs-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--ink2); padding: 9px 13px; background: #fff; border: 1px solid var(--border); border-radius: 9px; transition: all .2s; }
+    .cs-item:hover { border-color: var(--a2); color: var(--accent); }
+    .cs-ico { width: 30px; height: 30px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+
+    /* ===================== PROJECT CARDS ===================== */
+    .proj-filter { display: flex; gap: 8px; margin-bottom: 2.2rem; flex-wrap: wrap; }
+    .fb { background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 6px 16px; font-size: 12px; font-weight: 500; color: var(--ink2); cursor: pointer; transition: all .15s; font-family: var(--ff); }
+    .fb.active, .fb:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
+    /* Card = <a> tag — full card is clickable */
+    .pcard {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all .25s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      position: relative;
+    }
+    .pcard:hover {
+      border-color: var(--a2);
+      transform: translateY(-5px);
+      box-shadow: 0 14px 40px rgba(26,107,74,.13);
+    }
+
+    /* GitHub badge that fades in on hover */
+    .gh-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.93);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 5px 11px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      opacity: 0;
+      transform: translateY(-5px);
+      transition: opacity .2s, transform .2s;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .pcard:hover .gh-badge { opacity: 1; transform: translateY(0); }
+    .gh-svg { width: 13px; height: 13px; fill: var(--ink2); flex-shrink: 0; }
+
+    .pthumb { height: 155px; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    .pt1 { background: linear-gradient(135deg,#d4f0e3,#a8dfc5); }
+    .pt2 { background: linear-gradient(135deg,#dceeff,#b3d4f7); }
+    .pt3 { background: linear-gradient(135deg,#ffeedd,#ffd4a8); }
+    .pbody { padding: 1.2rem 1.3rem; }
+    .ptitle { font-weight: 600; font-size: .97rem; margin-bottom: .4rem; color: var(--ink); }
+    .pdesc { font-size: 13px; color: var(--ink3); line-height: 1.6; margin-bottom: .9rem; }
+    .ptags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: .9rem; }
+    .ptag { background: var(--a4); color: var(--accent); font-size: 10.5px; font-weight: 600; padding: 3px 10px; border-radius: 12px; font-family: var(--ffm); }
+    .pstatus { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; color: var(--gold); background: var(--gold2); border-radius: 10px; padding: 3px 10px; }
+    .pstatus-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+    /* Bottom bar — shows "View on GitHub →" */
+    .pcard-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .7rem 1.3rem;
+      border-top: 1px solid var(--bg3);
+      background: var(--bg2);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink3);
+      transition: background .25s, color .25s;
+    }
+    .pcard:hover .pcard-bar { background: var(--a3); color: var(--accent); }
+    .pcard-bar-arrow { transition: transform .2s; }
+    .pcard:hover .pcard-bar-arrow { transform: translateX(4px); }
+
+    /* SKILLS */
+    #skills { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
+    .sg { background: #fff; border: 1px solid var(--border); border-radius: 13px; padding: 1.3rem; }
+    .sg-title { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 600; color: var(--accent); margin-bottom: 1rem; }
+    .si { display: flex; align-items: center; justify-content: space-between; margin-bottom: 11px; }
+    .si-name { font-size: 13px; font-family: var(--ffm); color: var(--ink2); }
+    .si-bar { width: 88px; height: 5px; background: var(--bg3); border-radius: 3px; overflow: hidden; }
+    .si-fill { height: 100%; border-radius: 3px; background: var(--a2); }
+
+    /* EXPERIENCE */
+    .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .exp-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--ink3); margin-bottom: 1.3rem; }
+    .tl-item { display: flex; gap: 1.2rem; margin-bottom: 2rem; }
+    .tl-l { display: flex; flex-direction: column; align-items: center; }
+    .tl-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--a2); border: 2px solid var(--accent); flex-shrink: 0; margin-top: 4px; }
+    .tl-ln { width: 2px; flex: 1; background: var(--border); margin-top: 5px; }
+    .tl-c { flex: 1; }
+    .tl-role { font-weight: 600; color: var(--ink); font-size: .97rem; }
+    .tl-co { color: var(--accent); font-size: 13px; font-weight: 600; margin: 2px 0; }
+    .tl-date { font-size: 11.5px; color: var(--ink3); font-family: var(--ffm); margin-bottom: .45rem; }
+    .tl-detail { font-size: 13px; color: var(--ink2); line-height: 1.65; font-weight: 300; }
+    .edu-cards { display: flex; flex-direction: column; gap: 14px; }
+    .edu-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.3rem; }
+    .edu-title { font-weight: 600; font-size: .95rem; color: var(--ink); }
+    .edu-sub { font-size: 13px; color: var(--accent); font-weight: 600; margin: 2px 0; }
+    .edu-date { font-size: 11.5px; color: var(--ink3); font-family: var(--ffm); }
+    .edu-badge { display: inline-flex; align-items: center; gap: 5px; background: var(--a4); color: var(--accent); border-radius: 10px; padding: 3px 10px; font-size: 11px; font-weight: 600; margin-top: .4rem; font-family: var(--ffm); }
+    .cert-row { display: flex; flex-direction: column; gap: 10px; margin-top: 1.5rem; }
+    .cert-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--ink3); margin-bottom: .8rem; }
+    .cert-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--ink2); padding: 9px 13px; background: var(--bg2); border: 1px solid var(--border); border-radius: 9px; }
+    .cbadge { background: var(--a3); color: var(--accent); font-size: 10px; font-weight: 700; padding: 2px 9px; border-radius: 8px; font-family: var(--ffm); white-space: nowrap; }
+
+    /* CONTACT */
+    #contact { background: var(--bg2); border-top: 1px solid var(--border); }
+    .contact-inner { max-width: 1120px; margin: 0 auto; padding: 5rem 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .cinfo h3 { font-family: var(--ffd); font-size: 1.6rem; color: var(--ink); margin-bottom: .6rem; }
+    .cinfo p { color: var(--ink2); font-weight: 300; line-height: 1.8; margin-bottom: 1.8rem; }
+    .clinks { display: flex; flex-direction: column; gap: 11px; }
+    .clink { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink2); font-size: 13.5px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; background: #fff; transition: all .2s; }
+    .clink:hover { border-color: var(--a2); color: var(--accent); transform: translateX(4px); }
+    .cl-ico { width: 34px; height: 34px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+    .cform { display: flex; flex-direction: column; gap: 14px; }
+    .crow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .cg { display: flex; flex-direction: column; gap: 5px; }
+    .clbl { font-size: 12px; font-weight: 600; color: var(--ink2); text-transform: uppercase; letter-spacing: .05em; }
+    .ci { padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-family: var(--ff); font-size: 14px; color: var(--ink); background: #fff; transition: border .2s; outline: none; }
+    .ci:focus { border-color: var(--a2); }
+    textarea.ci { resize: vertical; min-height: 115px; }
+    .csend { background: var(--ink); color: #fff; padding: 12px; border: none; border-radius: 8px; font-family: var(--ff); font-size: 14px; font-weight: 500; cursor: pointer; transition: all .2s; }
+    .csend:hover { background: var(--accent); transform: translateY(-1px); }
+
+    footer { text-align: center; padding: 1.8rem; font-size: 12px; color: var(--ink3); border-top: 1px solid var(--border); }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+    .fu { animation: fadeUp .6s both; }
+    .d1 { animation-delay: .1s; }
+    .d2 { animation-delay: .2s; }
+
+    @media (max-width: 768px) {
+      #hero, #about .inner, .exp-grid, .contact-inner { grid-template-columns: 1fr; }
+      .crow { grid-template-columns: 1fr; }
+      nav { padding: 0 1.2rem; }
+      .nav-links { gap: 1rem; font-size: 11px; }
+      .sec-wrap, .contact-inner { padding: 3.5rem 1.2rem; }
+      .photo-frame, .photo-img, .avatar-fallback { width: 200px; height: 200px; }
+    }
+    @media (max-width: 480px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-brand">Praveen<span>.dev</span></div>
+    <div class="nav-links">
+      <a onclick="go('about')">About</a>
+      <a onclick="go('projects')">Projects</a>
+      <a onclick="go('skills')">Skills</a>
+      <a onclick="go('experience')">Experience</a>
+      <a onclick="go('contact')">Contact</a>
+    </div>
+    <button class="hire-btn" onclick="go('contact')">Hire me</button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="fu d1">
+      <div class="hero-tag"><span class="htdot"></span> Open to opportunities</div>
+      <h1>Praveen P<br><em>Software Developer</em></h1>
+      <p class="hero-desc">Computer Science undergraduate passionate about building scalable AI-driven solutions. Strong in Python, Java, full-stack web development, and machine learning.</p>
+      <div class="hero-btns">
+        <button class="btn-p" onclick="go('projects')">View projects</button>
+        <button class="btn-o" onclick="go('experience')">My journey</button>
+      </div>
+      <p class="hero-loc">📍 Kallakurichi, Tamil Nadu &nbsp;·&nbsp; 🎓 UIT Coimbatore · 2026</p>
+    </div>
+
+    <div class="hero-right fu d2">
+      <div class="photo-frame">
+        <div class="photo-ring"></div>
+        <div class="photo-ring-solid"></div>
+        <!--
+          HOW TO ADD YOUR PHOTO:
+          1. Copy your image into the same folder as this HTML file
+          2. Change  src="image.png"  to your actual filename, e.g. src="photo.jpg"
+        -->
+        <img
+          class="photo-img"
+          src="image.png"
+          alt="Praveen P — Software Developer"
+          onerror="this.style.display='none'; document.getElementById('avatar-fallback').style.display='flex';"
+        >
+        <div class="avatar-fallback" id="avatar-fallback">P</div>
+        <div class="photo-badge"><span class="pb-dot"></span> Available</div>
+      </div>
+      <div class="photo-stats">
+        <div class="ps"><div class="ps-val">7.96</div><div class="ps-lbl">CGPA</div></div>
+        <div class="ps"><div class="ps-val">2</div><div class="ps-lbl">Internships</div></div>
+        <div class="ps"><div class="ps-val">2+</div><div class="ps-lbl">Projects</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ABOUT -->
+  <div id="about" class="sec-wrap">
+    <div class="inner">
+      <div class="about-text">
+        <p class="sec-eyebrow">About me</p>
+        <h2 class="sec-h">Who I am</h2>
+        <p>I'm a Computer Science undergraduate at United Institute of Technology, Coimbatore, graduating in 2026. My core strengths are in Python, Java, Data Structures, and SQL — with hands-on experience in backend development, REST APIs, and AI/ML projects.</p>
+        <p>I'm deeply passionate about building AI-driven solutions and keep up with emerging technologies including LLM-based systems. I've completed internships in Data Science and Database Management, giving me real-world exposure alongside academic depth.</p>
+        <p>I enjoy solving complex problems through clean, maintainable code and believe in continuous learning as the foundation of great engineering.</p>
+        <div class="chips">
+          <span class="chip">Problem solver</span>
+          <span class="chip">AI enthusiast</span>
+          <span class="chip">Open source learner</span>
+          <span class="chip">Team collaborator</span>
+          <span class="chip">Fast learner</span>
+        </div>
+      </div>
+      <div>
+        <p class="sec-eyebrow">Get in touch</p>
+        <h3 style="font-family:var(--ffd);font-size:1.4rem;margin-bottom:1.2rem;color:var(--ink)">Reach me at</h3>
+        <div class="contact-strip">
+          <div class="cs-item"><div class="cs-ico" style="background:#e8f5e9">📧</div> hemapriyanp@gmail.com</div>
+          <div class="cs-item"><div class="cs-ico" style="background:#e3f2fd">📱</div> +91 6379005811</div>
+          <div class="cs-item"><div class="cs-ico" style="background:#e8eaf6">🔗</div> linkedin.com/in/praveenp2005</div>
+          <div class="cs-item"><div class="cs-ico" style="background:#f3e5f5">📍</div> Kallakurichi, Tamil Nadu</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- =================== PROJECTS =================== -->
+  <div id="projects" class="sec-wrap">
+    <p class="sec-eyebrow">Work</p>
+    <h2 class="sec-h">Projects</h2>
+    <p class="sec-sub">Real-world applications I've built — click any card to view the source code on GitHub.</p>
+
+    <div class="proj-filter">
+      <button class="fb active" onclick="fp('all', this)">All</button>
+      <button class="fb" onclick="fp('web', this)">Web App</button>
+      <button class="fb" onclick="fp('ai', this)">AI / ML</button>
+      <button class="fb" onclick="fp('backend', this)">Backend</button>
+    </div>
+
+    <div class="proj-grid" id="pgrid">
+
+      <!--
+        ════════════════════════════════════════════════════════
+         HOW TO UPDATE GITHUB LINKS
+         Replace each  href="https://github.com/YOUR_USERNAME/..."
+         with your real GitHub repo URL.
+
+         Example:
+           href="https://github.com/praveenp2005/trip-booking-app"
+        ════════════════════════════════════════════════════════
+      -->
+
+      <!-- PROJECT 1 -->
+      <a class="pcard"
+         data-cat="web"
+         href="https://github.com/praveen-2392/booking-app.git"
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <div class="gh-badge">
+          <svg class="gh-svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub ↗
+        </div>
+
+        <div class="pthumb pt1">✈️</div>
+        <div class="pbody">
+          <div class="ptitle">Trip Booking Web Application</div>
+          <div class="pdesc">Full-featured trip booking platform — search, compare, and book transport, guides, hotels & tours with a smooth user-friendly experience.</div>
+          <div class="ptags">
+            <span class="ptag">React.js</span>
+            <span class="ptag">REST API</span>
+            <span class="ptag">MySQL</span>
+            <span class="ptag">HTML/CSS</span>
+          </div>
+          <div class="pstatus"><span class="pstatus-dot"></span> In Progress — Team Lead</div>
+        </div>
+        <div class="pcard-bar">
+          <span>View source code on GitHub</span>
+          <span class="pcard-bar-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- PROJECT 2 -->
+      <a class="pcard"
+         data-cat="web backend"
+         href="https://github.com/praveen-2392/event-management-.git"
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <div class="gh-badge">
+          <svg class="gh-svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub ↗
+        </div>
+
+        <div class="pthumb pt2">📅</div>
+        <div class="pbody">
+          <div class="ptitle">Event Management System</div>
+          <div class="pdesc">Web app for creating, managing, and registering for events with add/remove functionality and a clean interactive UI.</div>
+          <div class="ptags">
+            <span class="ptag">Java</span>
+            <span class="ptag">SQL</span>
+            <span class="ptag">JavaScript</span>
+            <span class="ptag">HTML/CSS</span>
+          </div>
+          <div class="pstatus"><span class="pstatus-dot"></span> In Progress</div>
+        </div>
+        <div class="pcard-bar">
+          <span>View source code on GitHub</span>
+          <span class="pcard-bar-arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SKILLS -->
+  <div id="skills">
+    <div class="sec-wrap">
+      <p class="sec-eyebrow">Expertise</p>
+      <h2 class="sec-h">Skills & tech stack</h2>
+      <p class="sec-sub" style="margin-bottom:2.5rem">Technologies and tools I work with, rated by current proficiency.</p>
+      <div class="skills-grid">
+        <div class="sg">
+          <div class="sg-title">Languages</div>
+          <div class="si"><span class="si-name">Python</span><div class="si-bar"><div class="si-fill" style="width:85%"></div></div></div>
+          <div class="si"><span class="si-name">Java</span><div class="si-bar"><div class="si-fill" style="width:80%"></div></div></div>
+          <div class="si"><span class="si-name">JavaScript</span><div class="si-bar"><div class="si-fill" style="width:78%"></div></div></div>
+          <div class="si"><span class="si-name">C</span><div class="si-bar"><div class="si-fill" style="width:65%"></div></div></div>
+        </div>
+        <div class="sg">
+          <div class="sg-title">Frontend</div>
+          <div class="si"><span class="si-name">HTML / CSS</span><div class="si-bar"><div class="si-fill" style="width:88%"></div></div></div>
+          <div class="si"><span class="si-name">React.js</span><div class="si-bar"><div class="si-fill" style="width:75%"></div></div></div>
+          <div class="si"><span class="si-name">JavaScript</span><div class="si-bar"><div class="si-fill" style="width:78%"></div></div></div>
+          <div class="si"><span class="si-name">Flexbox / Grid</span><div class="si-bar"><div class="si-fill" style="width:82%"></div></div></div>
+        </div>
+        <div class="sg">
+          <div class="sg-title">Database</div>
+          <div class="si"><span class="si-name">MySQL</span><div class="si-bar"><div class="si-fill" style="width:85%"></div></div></div>
+          <div class="si"><span class="si-name">SQL Queries</span><div class="si-bar"><div class="si-fill" style="width:88%"></div></div></div>
+          <div class="si"><span class="si-name">DBMS</span><div class="si-bar"><div class="si-fill" style="width:80%"></div></div></div>
+          <div class="si"><span class="si-name">Normalization</span><div class="si-bar"><div class="si-fill" style="width:76%"></div></div></div>
+        </div>
+        <div class="sg">
+          <div class="sg-title">AI / Tools</div>
+          <div class="si"><span class="si-name">ML Basics</span><div class="si-bar"><div class="si-fill" style="width:72%"></div></div></div>
+          <div class="si"><span class="si-name">Power BI</span><div class="si-bar"><div class="si-fill" style="width:70%"></div></div></div>
+          <div class="si"><span class="si-name">Git</span><div class="si-bar"><div class="si-fill" style="width:78%"></div></div></div>
+          <div class="si"><span class="si-name">REST APIs</span><div class="si-bar"><div class="si-fill" style="width:74%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div id="experience" class="sec-wrap">
+    <p class="sec-eyebrow">Journey</p>
+    <h2 class="sec-h">Experience & education</h2>
+    <p class="sec-sub">My academic path and professional internship experience.</p>
+    <div class="exp-grid">
+      <div>
+        <p class="exp-label">Work experience</p>
+        <div class="tl-item">
+          <div class="tl-l"><div class="tl-dot"></div><div class="tl-ln"></div></div>
+          <div class="tl-c">
+            <div class="tl-role">Data Science Intern</div>
+            <div class="tl-co">Emglitz Technologies</div>
+            <div class="tl-date">Jul 2025 – Aug 2025</div>
+            <div class="tl-detail">Python for data analysis and visualization. Applied techniques to handle missing values and created data visualizations using plotting libraries.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-l"><div class="tl-dot"></div></div>
+          <div class="tl-c">
+            <div class="tl-role">Database Management (SQL)</div>
+            <div class="tl-co">Vrutsam Technologies Pvt. Ltd.</div>
+            <div class="tl-date">Jan 2025 – Feb 2025</div>
+            <div class="tl-detail">Participated in user training sessions to enhance database utilization and efficiency. Strengthened SQL and DBMS skills in a corporate setting.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="exp-label">Education</p>
+        <div class="edu-cards">
+          <div class="edu-card">
+            <div class="edu-title">United Institute of Technology</div>
+            <div class="edu-sub">B.E. Computer Science & Engineering</div>
+            <div class="edu-date">2022 – 2026 · Coimbatore</div>
+            <div class="edu-badge">CGPA: 8.2</div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-title">AKT Memorial Vidya Saaket School (CBSE)</div>
+            <div class="edu-sub">Higher Secondary Education</div>
+            <div class="edu-date">2018 – 2022</div>
+            <div style="display:flex;gap:8px;margin-top:.5rem;flex-wrap:wrap;">
+              <div class="edu-badge">HSC: 68.4%</div>
+              <div class="edu-badge">SSLC: 78.4%</div>
+            </div>
+          </div>
+          <div>
+            <p class="cert-label" style="margin-top:1.2rem;">Certifications</p>
+            <div class="cert-row">
+              <div class="cert-item"><span class="cbadge">Power BI</span> Certified Power BI Workshop — Office Master</div>
+              <div class="cert-item"><span class="cbadge">Data Sci</span> Data Science Certification — Corizo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- CONTACT -->
+  <div id="contact">
+    <div class="contact-inner">
+      <div class="cinfo">
+        <p class="sec-eyebrow">Let's connect</p>
+        <h3>Hire me or collaborate</h3>
+        <p>I'm actively looking for internships, entry-level roles, and project collaborations. Feel free to reach out — I typically respond within a day.</p>
+        <div class="clinks">
+          <a class="clink" href="mailto:praveen123work@gmail.com"><div class="cl-ico" style="background:#e8f5e9">📧</div> praveen123work@gmail.com</a>
+          <a class="clink" href="tel:+916379005811"><div class="cl-ico" style="background:#fff3e0">📱</div> +91 6379005811</a>
+          <a class="clink" href="https://www.linkedin.com/in/praveenp2005" target="_blank"><div class="cl-ico" style="background:#e3f2fd">🔗</div> linkedin.com/in/praveenp2005</a>
+        </div>
+      </div>
+      <div>
+        <p class="sec-eyebrow" style="margin-bottom:1.2rem">Send a message</p>
+        <div class="cform">
+          <div class="crow">
+            <div class="cg"><label class="clbl">Name</label><input id="name" class="ci" type="text" placeholder="Your name"></div>
+            <div class="cg"><label class="clbl">Email</label><input id="email" class="ci" type="email" placeholder="you@email.com"></div>
+          </div>
+          <div class="cg"><label class="clbl">Subject</label><input id="subject" class="ci" type="text" placeholder="Opportunity / Collaboration / Query"></div>
+          <div class="cg"><label class="clbl">Message</label><textarea id="message" class="ci" placeholder="Tell me about your project or role..."></textarea></div>
+          <button class="csend" onclick="sendMsg()">Send message →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2026 Praveen P · B.E. CSE — United Institute of Technology, Coimbatore</footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    function go(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function fp(cat, btn) {
+      document.querySelectorAll('.fb').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.pcard').forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat.includes(cat)) ? 'block' : 'none';
+      });
+    }
+
+    const sections = ['hero', 'about', 'projects', 'skills', 'experience', 'contact'];
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 80) current = id;
+      });
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        const match = (a.getAttribute('onclick') || '').match(/'(\w+)'/);
+        if (match) a.classList.toggle('active', match[1] === current);
+      });
+    });
+
+    // EmailJS
+    (function () { emailjs.init("394jPSnrbHFN4mPzy"); })();
+
+    function sendMsg() {
+      const btn = document.querySelector('.csend');
+      const params = {
+        name:    document.getElementById("name").value,
+        email:   document.getElementById("email").value,
+        title:   document.getElementById("subject").value,
+        message: document.getElementById("message").value
+      };
+      if (!params.name || !params.email || !params.message) {
+        btn.textContent = "⚠ Fill all fields!";
+        btn.style.background = "orange";
+        setTimeout(() => { btn.textContent = "Send message →"; btn.style.background = ""; }, 3000);
+        return;
+      }
+      emailjs.send("service_tf45c7t", "template_2sx2ods", params)
+        .then(() => {
+          btn.textContent = "✓ Message sent!";
+          btn.style.background = "var(--accent)";
+          document.getElementById("name").value = "";
+          document.getElementById("email").value = "";
+          document.getElementById("subject").value = "";
+          document.getElementById("message").value = "";
+        })
+        .catch(err => {
+          console.error("EmailJS Error:", err);
+          btn.textContent = "❌ Failed!";
+          btn.style.background = "red";
+        });
+      setTimeout(() => { btn.textContent = "Send message →"; btn.style.background = ""; }, 3000);
+    }
+  </script>
+
+</body>
+</html>
