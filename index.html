@@ -245,6 +245,7 @@
       <a onclick="go('projects')">Projects</a>
       <a onclick="go('skills')">Skills</a>
       <a onclick="go('experience')">Experience</a>
+      <a onclick="go('publication')">Publication</a>
       <a onclick="go('contact')">Contact</a>
     </div>
     <button class="hire-btn" onclick="go('contact')">Hire me</button>
@@ -284,7 +285,8 @@
       <div class="photo-stats">
         <div class="ps"><div class="ps-val">8.2</div><div class="ps-lbl">CGPA</div></div>
         <div class="ps"><div class="ps-val">2</div><div class="ps-lbl">Internships</div></div>
-        <div class="ps"><div class="ps-val">2+</div><div class="ps-lbl">Projects</div></div>
+        <div class="ps"><div class="ps-val">3+</div><div class="ps-lbl">Projects</div></div>
+        <div class="ps"><div class="ps-val">1</div><div class="ps-lbl">Publication</div></div>
       </div>
     </div>
   </section>
@@ -306,6 +308,7 @@
           <span class="chip">Open source learner</span>
           <span class="chip">Team collaborator</span>
           <span class="chip">Fast learner</span>
+          <span class="chip">Published Researcher</span>
         </div>
       </div>
       <div>
@@ -338,16 +341,7 @@
 
     <div class="proj-grid" id="pgrid">
 
-      <!--
-        ════════════════════════════════════════════════════════
-         HOW TO UPDATE GITHUB LINKS
-         Replace each  href="https://github.com/YOUR_USERNAME/..."
-         with your real GitHub repo URL.
-
-         Example:
-           href="https://github.com/praveenp2005/trip-booking-app"
-        ════════════════════════════════════════════════════════
-      -->
+      
 
       <!-- PROJECT 1 -->
       <a class="pcard"
@@ -405,6 +399,36 @@
             <span class="ptag">yolo</span>
             <span class="ptag">deep learning</span>
             <span class="ptag">OpenCV</span> 
+          </div>
+          <div class="pstatus"><span class="pstatus-dot"></span> In development</div>
+        </div>
+        <div class="pcard-bar">
+          <span>View source code on GitHub</span>
+          <span class="pcard-bar-arrow">→</span>
+        </div>
+      </a>
+      <!-- PROJECT 3 -->
+      <a class="pcard"
+         data-cat="Automatic Pipeline"
+         href="https://github.com/praveen-2392/OUTREACH_PIPELINE.git"
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <div class="gh-badge">
+          <svg class="gh-svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub ↗
+        </div>
+
+        <div class="pthumb pt2">📧</div>   <!-- Email Outreach -->
+        <div class="pbody">
+          <div class="ptitle">Automated Outreach Pipeline</div>
+          <div class="pdesc">An AI-powered lead generation and outreach platform that automatically discovers prospects, enriches contact information, generates personalized email campaigns, and tracks engagement through an integrated workflow.</div>
+          <div class="ptags">
+            <span class="ptag">ocean.api</span>
+            <span class="ptag">Prospeo.api</span>
+            <span class="ptag">Brevo</span>
+            <span class="ptag">Python</span>
+             
           </div>
           <div class="pstatus"><span class="pstatus-dot"></span> In development</div>
         </div>
@@ -514,6 +538,44 @@
       </div>
     </div>
   </div>
+
+  
+  <hr class="divider">
+
+  <!-- PUBLICATION -->
+  <div id="publication" class="sec-wrap">
+    <p class="sec-eyebrow">Research</p>
+    <h2 class="sec-h">Journal Publication</h2>
+    <p class="sec-sub">
+      Published research work in an international journal demonstrating my interest in AI, surveillance systems, and emerging technologies.
+    </p>
+
+    <div class="edu-card" style="max-width:900px;">
+      <div class="edu-title">
+        AI-Powered Surveillance System for Real-Time Violence Detection
+      </div>
+
+      <div class="edu-sub">
+        International Journal for Research Trends and Innovation (IJRTI)
+      </div>
+
+      <div class="edu-date">
+        Published Research Paper
+      </div>
+
+      <p style="margin-top:12px;color:var(--ink2);line-height:1.8;">
+        This research presents an AI-based surveillance framework that utilizes deep learning and computer vision techniques for real-time violence detection. The system leverages YOLO-based object detection models to analyze live video streams and generate alerts for suspicious activities, improving public safety and automated monitoring capabilities.
+      </p>
+
+      <div style="margin-top:18px;">
+        <a href="https://www.ijrti.org/papers/IJRTI2605044.pdf" target="_blank"
+           style="display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:white;padding:10px 18px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;">
+          📄 View Published Paper
+        </a>
+      </div>
+    </div>
+  </div>
+
 
   <hr class="divider">
 
